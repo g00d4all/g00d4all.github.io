@@ -13,9 +13,11 @@ function collapse(x) {
 }
 
 document.getElementById("collapse").onclick = function() {
+  alert(1);
+  /*
   var mySolution = document.getElementsByClassName("solution");
   for(var i = 0; i < mySolution.length; i++) {
     mySolution[i].style.display = (mySolution[i].style.display == "none" ? "block" : "none");
     }
-  this.value = (this.value == "➕" ? "➖" : "➕");
+  this.value = (this.value == "➕" ? "➖" : "➕");*/
 };
