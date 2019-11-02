@@ -6,15 +6,22 @@ for(var i = 0; i < tikz.length; i++) {
 
 document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
+  var myPreset = document.getElementsByClassName("preset");
   if (this.value.charCodeAt(0).toString(16) == 2795) {
     for(var i = 0; i < mySolution.length; i++) {
       mySolution[i].style.display = "block";
+    }
+    for(var i = 0; i < myPreset.length; i++) {
+      myPreset[i].style.display = "none";
     }
     this.value = String.fromCharCode(0x2796);
   }
   else {
     for(var i = 0; i < mySolution.length; i++) {
       mySolution[i].style.display = "none";
+    }
+    for(var i = 0; i < myPreset.length; i++) {
+      myPreset[i].style.display = "";
     }
     this.value = String.fromCharCode(0x2795);
   }
