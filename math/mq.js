@@ -6,10 +6,18 @@ for(var i = 0; i < tikz.length; i++) {
 
 document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
-  for(var i = 0; i < mySolution.length; i++) {
-    mySolution[i].style.display = ((mySolution[i].style.display == "none" || mySolution[i].style.display == "")? "block" : "none");
+  if (this.value == "➕") {
+    for(var i = 0; i < mySolution.length; i++) {
+      mySolution[i].style.display = "";
     }
-  this.value = (this.value == "➕" ? "➖" : "➕");
+    this.value = "➖";
+  }
+  else {
+    for(var i = 0; i < mySolution.length; i++) {
+      mySolution[i].style.display = "none";
+    }
+    this.value = "➕";
+  }
 }
 
 document.getElementById("print").onclick = function() {
