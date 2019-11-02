@@ -4,7 +4,7 @@ for(var i = 0; i < tikz.length; i++) {
   tikz[i].outerHTML = "<span style='display:block;text-align:center;'>"+tikz[i].outerHTML+"</span>";
 }
 
-function collapse(x) {
+document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
   for(var i = 0; i < mySolution.length; i++) {
     mySolution[i].style.display = (mySolution[i].style.display == "none" ? "block" : "none");
