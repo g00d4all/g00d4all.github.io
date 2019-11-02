@@ -8,15 +8,15 @@ document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
   if (this.value.charCodeAt(0).toString(16) == 2795) {
     for(var i = 0; i < mySolution.length; i++) {
-      mySolution[i].style.display = "";
+      mySolution[i].style.display = "block";
     }
-    this.value = "&#x2796";
+    this.value = String.fromCharCode(0x2796);
   }
   else {
     for(var i = 0; i < mySolution.length; i++) {
       mySolution[i].style.display = "none";
     }
-    this.value = "&#x2795";
+    this.value = String.fromCharCode(0x2795);
   }
 }
 
