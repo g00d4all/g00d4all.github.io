@@ -4,10 +4,10 @@ for(var i=0;i<tikz.length;i++) {
   tikz[i].outerHTML="<span style='display:block;text-align:center;'>"+tikz[i].outerHTML+"</span>";
 }
 
-function collapse(this) {
+function collapse(x) {
   var mySolution = document.getElementsByClassName("solution");
   for(var i = 0; i < mySolution.length; i++) {
     mySolution[i].style.display = (mySolution[i].style.display == "none" ? "block" : "none");
     }
-  this.value = (this.value == "➕" ? "➖" : "➕");
+  x.value = (x.value == "➕" ? "➖" : "➕");
 }
