@@ -7,7 +7,7 @@ for(var i = 0; i < tikz.length; i++) {
 document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
   for(var i = 0; i < mySolution.length; i++) {
-    mySolution[i].style.display = (mySolution[i].style.display == "none" ? "block" : "none");
+    mySolution[i].style.display = ((mySolution[i].style.display == "none" || mySolution[i].style.display == "")? "block" : "none");
     }
   this.value = (this.value == "➕" ? "➖" : "➕");
 }
