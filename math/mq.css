@@ -13,3 +13,12 @@
 .preset {
   display: ;
 }
+
+span.image.block {
+  display: block;
+  text-align: center;
+}
+
+img.tikz {
+  marign: 0.5em, 0
+}
