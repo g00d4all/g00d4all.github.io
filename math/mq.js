@@ -35,17 +35,6 @@ document.getElementById("print").onclick = function() {
   <title>${document.getElementsByClassName("preview-paragraph-0 preview-line 0")[0].innerText.trim()}</title>
   <link rel="stylesheet" type="text/css" href="https://g00d4all.github.io/math/mq.css">
   <script type="text/javascript" src="https://g00d4all.github.io/math/mq.js"></script>
-  <style type="text/css">
-  html * {
-    font-family: Times, Times New Roman, serif;
-    }
-  li {
-    margin-bottom: 1em;
-    }
-  li br {
-    content: \"\A\" !important; display: block !important; margin-bottom: 0.25em !important;
-    }
-  </style>
   </head>
   <body>
   </body>
