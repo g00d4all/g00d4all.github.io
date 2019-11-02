@@ -6,17 +6,17 @@ for(var i = 0; i < tikz.length; i++) {
 
 document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
-  if (this.value == "➕") {
+  if (this.value.charCodeAt(0).toString(16) == 2795) {
     for(var i = 0; i < mySolution.length; i++) {
       mySolution[i].style.display = "";
     }
-    this.value = "➖";
+    this.value = "&#x2796";
   }
   else {
     for(var i = 0; i < mySolution.length; i++) {
       mySolution[i].style.display = "none";
     }
-    this.value = "➕";
+    this.value = "&#x2795";
   }
 }
 
