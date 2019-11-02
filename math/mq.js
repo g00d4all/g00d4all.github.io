@@ -9,7 +9,7 @@ document.getElementById("collapse").onclick = function() {
   var myPreset = document.getElementsByClassName("preset");
   if (this.value.charCodeAt(0).toString(16) == 2795) {
     for(var i = 0; i < mySolution.length; i++) {
-      mySolution[i].style.display = "block";
+      mySolution[i].style.display = "";
     }
     for(var i = 0; i < myPreset.length; i++) {
       myPreset[i].style.display = "none";
