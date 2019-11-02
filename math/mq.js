@@ -12,15 +12,10 @@ function collapse(x) {
   this.value = (this.value == "➕" ? "➖" : "➕");
 }
 
-
-function executeBodyOnLoad() {
-  document.getElementById("collapse").onclick = function() {
-    var mySolution = document.getElementsByClassName("solution");
-    for(var i = 0; i < mySolution.length; i++) {
-      mySolution[i].style.display = (mySolution[i].style.display == "none" ? "block" : "none");
-      }
-    this.value = (this.value == "➕" ? "➖" : "➕");
-  };
-}
-
-document.body.onload="executeBodyOnLoad()";
+document.getElementById("collapse").onclick = function() {
+  var mySolution = document.getElementsByClassName("solution");
+  for(var i = 0; i < mySolution.length; i++) {
+    mySolution[i].style.display = (mySolution[i].style.display == "none" ? "block" : "none");
+    }
+  this.value = (this.value == "➕" ? "➖" : "➕");
+};
