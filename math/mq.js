@@ -9,5 +9,13 @@ function collapse(x) {
   for(var i = 0; i < mySolution.length; i++) {
     mySolution[i].style.display = (mySolution[i].style.display == "none" ? "block" : "none");
     }
-  x.value = (x.value == "➕" ? "➖" : "➕");
+  this.value = (this.value == "➕" ? "➖" : "➕");
 }
+
+document.getElementById("collapse").onclick = function() {
+  var mySolution = document.getElementsByClassName("solution");
+  for(var i = 0; i < mySolution.length; i++) {
+    mySolution[i].style.display = (mySolution[i].style.display == "none" ? "block" : "none");
+    }
+  this.value = (this.value == "➕" ? "➖" : "➕");
+};
