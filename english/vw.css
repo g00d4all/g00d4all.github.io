@@ -88,7 +88,7 @@ mp		media player
 .ms {
   display: none;
 }
-#hint {
+.hint {
   position: fixed;
   top: 20%;
   left: -100px;
@@ -101,10 +101,10 @@ mp		media player
   opacity:0.75;
   border-radius: 0 10px 10px 0;
 }
-#wdlist {
+.wdlist {
   display: none;
 }
-#mp {
+.mp {
   position: fixed;
   transform-origin: top left;
   transform: rotate(90deg);
