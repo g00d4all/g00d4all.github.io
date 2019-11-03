@@ -74,29 +74,29 @@ document.getElementById('wdlist').innerHTML = wdlist.split("|").join("<br>");
 
 //set attributes of selected classes
   var c_a = [
-    ['av', [
-    ['onclick', 'var mp=document.getElementById(\'mp\'); mp.src=\'' + msroot + '\' + this.nextSibling.innerText; mp.load(); mp.play();']
+    ["av", [
+    ["onclick", "var mp=document.getElementById('mp'); mp.src='" + msroot + "' + this.nextSibling.innerText; mp.load(); mp.play();"]
   ]],
-  ['bl', [
-    ['type', 'text'],
-    ['onblur', 'this.value=(this.value.toLowerCase().trim()==\'?\'|| this.value.toLowerCase().trim()==this.nextSibling.innerText.toLowerCase())?this.nextSibling.innerText:\'\';'],
-        ['onkeyup', 'if(event.keyCode==13){this.blur();}'],
-        ['ondblclick', 'this.value=this.nextSibling.innerText;']
+  ["bl", [
+    ["type", "text"],
+    ["onblur", "this.value=(this.value.toLowerCase().trim()=='?'|| this.value.toLowerCase().trim()==this.nextSibling.innerText.toLowerCase())?this.nextSibling.innerText:'';"],
+    ["onkeyup", "if(event.keyCode==13){this.blur();}"],
+    ["ondblclick", "this.value=this.nextSibling.innerText;"]
   ]],
-  ['cc', [
-    ['onclick', 'this.style.border=\'1px solid blue\'']
+  ["cc", [
+    ["onclick", "this.style.border='1px solid blue'"]
   ]],
-  ['ac', [
-    ['onclick', 'if(this.hasChildNodes()){this.firstChild.click()}']
+  ["ac", [
+    ["onclick", "if(this.hasChildNodes()){this.firstChild.click()}"]
   ]],
-  ['hint', [
-    ['onclick', 'this.style.left=(this.style.left==\'-100px\'?0:\'-100px\'); document.getElementById(\'wdlist\').style.display=(document.getElementById(\'wdlist\').style.display==\'\'?\'none\':\'\')'],
-        ['onmouseover', 'this.style.left=0; document.getElementById(\'wdlist\').style.display=\'\''],
-    ['onmouseout', 'this.style.left= \'-100px\'; document.getElementById(\'wdlist\').style.display=\'none\'']
+  ["hint", [
+    ["onclick", "this.style.left=(this.style.left=='-100px'?0:'-100px'); document.getElementById('wdlist').style.display=(document.getElementById('wdlist').style.display==''?'none':'')"],
+    ["onmouseover", "this.style.left=0; document.getElementById('wdlist').style.display=''"],
+    ["onmouseout", "this.style.left='-100px'; document.getElementById('wdlist').style.display='none'"]
   ]],
-  ['mp', [
-    ['onloadstart', 'this.style.display=\'\''],
-    ['onended', 'this.style.display=\'none\'']
+  ["mp", [
+    ["onloadstart", "this.style.display=''"],
+    ["onended", "this.style.display='none'"]
   ]]
   ];
 
