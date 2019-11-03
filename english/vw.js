@@ -1,5 +1,5 @@
 eval(document.getElementById('unitInfo').innerText);
-document.getElementById("wdlist").innerHTML = window.wdlist.split("|").join("<br>");
+document.getElementById("wdlist").innerHTML = wdlist.split("|").join("<br>");
 
 //set attributes of selected classes
   var c_a = [
