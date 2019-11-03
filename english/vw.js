@@ -90,12 +90,12 @@ document.getElementById("wdlist").innerHTML = window.wdlist.split("|").join("<br
     ["onclick", "if(this.hasChildNodes()){this.firstChild.click()}"]
   ]],
   ["hint", [
-    ["onclick", "this.style.left=(this.style.left=='-100px'?0:'-100px'); document.getElementById('wdlist').style.display=(document.getElementById('wdlist').style.display==''?'none':'')"],
-    ["onmouseover", "this.style.left=0; document.getElementById('wdlist').style.display=''"],
+    ["onclick", "this.style.left=(this.style.left=='-100px'?0:'-100px'); document.getElementById('wdlist').style.display=(document.getElementById('wdlist').style.display=='block'?'none':'block')"],
+    ["onmouseover", "this.style.left=0; document.getElementById('wdlist').style.display='block'"],
     ["onmouseout", "this.style.left='-100px'; document.getElementById('wdlist').style.display='none'"]
   ]],
   ["mp", [
-    ["onloadstart", "this.style.display=''"],
+    ["onloadstart", "this.style.display='block'"],
     ["onended", "this.style.display='none'"]
   ]]
   ];
