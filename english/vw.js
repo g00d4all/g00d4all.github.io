@@ -98,7 +98,7 @@ document.getElementById("print").onclick = function() {
   </html>
   `);  
   myWindow.document.body.appendChild(document.getElementById('preview-content').cloneNode(true));
-  myWindow.document.getElementById("hint").style="width: 24.5cm; height: 3em; position: fixed; top: 50%; left: -11.62cm; transform: rotate(90deg); margin: 0; padding: 0; text-align: left; vertical-algin: bottom; color: grey;";
+  myWindow.document.getElementById("hint").style="position: fixed; top: 50%; left: -11.62cm; transform: rotate(90deg); margin: 0; padding: 0; width: 24.5cm; height: 3em; text-align: left; color: grey; background: transparent; opacity: 1; border-radius: 0";
   myWindow.document.getElementById("hint").removeAttribute("onclick");
   myWindow.document.getElementById("hint").removeAttribute("onmouseover");
   myWindow.document.getElementById("hint").removeAttribute("onmouseout");
