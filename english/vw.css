@@ -101,7 +101,7 @@ mp		media player
   opacity:0.75;
   border-radius: 0 10px 10px 0;
 }
-.wdlist {
+#wdlist {
   display: none;
 }
 .mp {
@@ -109,6 +109,6 @@ mp		media player
   transform-origin: top left;
   transform: rotate(90deg);
   top: 40%; left:25px;
-  display: none;
+  display: block;
   height: 25px;
 }
