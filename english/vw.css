@@ -1,0 +1,84 @@
+.dflc {
+  display: inline-block;
+  width: 20%;
+  text-align: left;
+  vertical-align: top;
+}
+.dfrc {
+  display: inline-block;
+  width: 80%;
+  text-align: left;
+  vertical-align: top;
+}
+.pt {
+  font-family: Segoe UI, Tahoma, Verdana, Helvetica, Arial, sans-serif;
+}
+.is {
+  display: inline-block;
+  padding-left: 1em;
+}
+.sc {
+  font-variant: small-caps;
+}
+.bl {
+  display: inline-block;
+  width: 125px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  text-align: center;
+  color: blue;
+  background: transparent;
+  font-sze: inherit;
+}
+.ha {
+  display: none;
+}
+.cc {
+  border: none;
+  border-radius: 20px;
+}
+.salc {
+  display: inline-block;
+  width: 70%;
+  text-align: left;
+  vertical-align: top;
+}
+.sarc {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+  vertical-align: top;
+}
+.ac {
+  display: inline-block;
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+}
+.ms {
+  display: none;
+}
+.hint {
+  position: fixed;
+  top: 20%;
+  left: -100px;
+  transition: all 0.3s ease-in;
+  padding: 0px;
+  width: 125px;
+  text-align: right;
+  color: blue;
+  background: #f2f2f2;
+  opacity:0.75;
+  border-radius: 0 10px 10px 0;
+}
+.mp {
+  position: fixed;
+  transform-origin: top left;
+  transform: rotate(90deg);
+  top: 40%; left:25px;
+  display: none;
+  height: 25px;
+}
