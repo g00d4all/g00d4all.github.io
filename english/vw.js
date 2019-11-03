@@ -29,6 +29,28 @@ document.getElementById("print").onclick = function() {
   <title>${document.getElementsByClassName("preview-paragraph-0 preview-line 0")[0].innerText.trim()}</title>
   <link rel="stylesheet" type="text/css" href="https://g00d4all.github.io/english/vw.css">
   <script type="text/javascript" src="https://g00d4all.github.io/english/vw.js"></script>
+  <style>
+    html * { 
+    font-family: Times, "Times New Roman", Georgia, serif;
+    }
+    div {
+    margin-top: 0;
+    margin-bottom: 1em;
+    text-align: justify;
+    }
+    /* clears the 'X' from Internet Explorer & Edge */
+    input[type="search"]::-ms-clear,
+    input[type="search"]::-ms-reveal {
+    display: none;
+    }
+    /* clears the 'X' from Chrome */
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+    }
+  </style>
   </head>
   <body onload="window.print(); window.close();">
   </body>
