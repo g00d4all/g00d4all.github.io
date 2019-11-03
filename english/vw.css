@@ -93,8 +93,10 @@ mp		media player
   top: 20%;
   left: -100px;
   transition: all 0.3s ease-in;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   width: 125px;
+  height: auto;
   text-align: right;
   color: blue;
   background: #f2f2f2;
