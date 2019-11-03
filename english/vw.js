@@ -70,13 +70,12 @@ document.getElementById("print").onclick = function() {
   myWindow.focus();
 }
 
-  alert(msroot);
-document.getElementById("wdlist").innerHTML = wdlist.split("|").join("<br>");
+document.getElementById("wdlist").innerHTML = window.wdlist.split("|").join("<br>");
 
 //set attributes of selected classes
   var c_a = [
     ["av", [
-    ["onclick", "var mp=document.getElementById('mp'); mp.src='" + msroot + "' + this.nextSibling.innerText; mp.load(); mp.play();"]
+    ["onclick", "var mp=document.getElementById('mp'); mp.src='" + window.msroot + "' + this.nextSibling.innerText; mp.load(); mp.play();"]
   ]],
   ["bl", [
     ["type", "text"],
