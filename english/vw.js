@@ -12,7 +12,7 @@ document.getElementById("collapse").onclick = function() {
   }
   else {
     for(var i=0; i<cc.length; i++) {
-      cc[i].style.border="1px solid blue";
+      cc[i].style.border="none";
     }
     for(var i=0; i<bl.length; i++) {
       bl[i].value="";
