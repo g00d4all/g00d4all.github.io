@@ -1,3 +1,21 @@
+/*
+dflc	definition left column
+pt		phonetic transcription
+av		audio/video
+ms		media source
+dfrc	definition right column
+is		illustrative sentence
+sc		small caps
+bl		blank input
+ha		hidden answer
+cc		correct choice
+salc	synonym/antonym left column
+sarc	synonym/antonym right column
+ac		array choice
+hint	hint of word list on page side
+mp		media player
+*/
+
 .button {
   border-radius: 10px;
   background: transparent;
