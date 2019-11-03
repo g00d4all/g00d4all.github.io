@@ -102,8 +102,8 @@ document.getElementById("print").onclick = function() {
   myWindow.document.getElementById("hint").removeAttribute("onclick");
   myWindow.document.getElementById("hint").removeAttribute("onmouseover");
   myWindow.document.getElementById("hint").removeAttribute("onmouseout");
-  myWindow.document.getElementById("wdlist").style.display="";
-  myWindow.document.getElementById("hint").innerHTML = "<small>"+document.getElementById("hint").innerText.split('\n').join(' | ')+"</small>";
+  myWindow.document.getElementById("wdlist").style.display="block";
+  myWindow.document.getElementById("hint").innerHTML = "<small>"+myWindow.document.getElementById("hint").innerText.split('\n').join(' | ')+"</small>";
   var av = myWindow.document.getElementsByClassName("av");
   for(var i=0;i<av.length;i++) {av[i].style.display="none";} 
   myWindow.document.getElementById('preview-content').style.marginLeft ="3em";
