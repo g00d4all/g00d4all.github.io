@@ -109,6 +109,6 @@ mp		media player
   transform-origin: top left;
   transform: rotate(90deg);
   top: 40%; left:25px;
-  display: block;
+  display: none;
   height: 25px;
 }
