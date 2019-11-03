@@ -70,7 +70,8 @@ document.getElementById("print").onclick = function() {
   myWindow.focus();
 }
 
-document.getElementById('wdlist').innerHTML = wdlist.split("|").join("<br>");
+  alert(msroot);
+document.getElementById("wdlist").innerHTML = wdlist.split("|").join("<br>");
 
 //set attributes of selected classes
   var c_a = [
