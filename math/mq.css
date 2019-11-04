@@ -29,6 +29,41 @@ img.tikz {
   margin: 8px auto
 }
 
+._table {
+  display: table;
+  border-collapse: collapse;
+  }
+._caption {
+  display: table-caption;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  }
+._thead {
+  display: table-header-group;
+  text-align: center;
+  font-weight: bold;
+  }
+._tbody {
+  display: table-row-group;
+  }
+._tfoot {
+  display: table-footer-group;
+  text-align: center;
+  font-weight: bold;
+  }
+._tr {
+  display: table-row;
+  }
+._tr:nth-child(even) {
+  background-color: #f2f2f2;
+  }
+._th, ._td {
+  display: table-cell;
+  border: 1px solid black;
+  padding: 0 10px;
+  }
+
 li {
   margin-bottom: 0.5em;
 }
