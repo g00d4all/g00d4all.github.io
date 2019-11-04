@@ -36,5 +36,5 @@ li {
 li br {
   content: '\A' !important;
   display: block !important;
-  margin-bottom: 0.25em !important;
+  margin-bottom: 0.5em !important;
 }
