@@ -32,6 +32,7 @@ img.tikz {
 ._table {
   display: table;
   border-collapse: collapse;
+  margin: 0 auto;
   }
 ._caption {
   display: table-caption;
