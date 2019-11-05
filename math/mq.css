@@ -61,7 +61,7 @@ img.tikz {
   }
 ._th, ._td {
   display: table-cell;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   padding: 0 10px;
   }
 .extra {
