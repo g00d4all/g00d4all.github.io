@@ -25,6 +25,13 @@ mp		media player
   display: none;
 }
 
+.title, .subtitle {
+  display: block;
+  text-align: center;
+}
+.title {
+  font-size: 20px;
+}
 .dflc {
   display: inline-block;
   width: 20%;
