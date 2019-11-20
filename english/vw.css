@@ -46,7 +46,7 @@ mp		media player
   vertical-align: top;
 }
 .pt {
-  font-family: "Segoe UI", Tahoma, Verdana, Helvetica, Arial, sans-serif;
+  font-family: Tahoma, "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
 }
 .is {
   display: inline-block;
