@@ -124,6 +124,6 @@ mp		media player
   height: 25px;
 }
 ol ol {
-  padding: 0;
-  list-style-position: inside;
+  padding: 1.1em;
+  list-style-position: outside;
 }
