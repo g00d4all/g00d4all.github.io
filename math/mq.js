@@ -12,7 +12,7 @@ for(var i = 0; i < latex.length; i++) {
 
 var image=document.getElementsByClassName("image");
 for(var i = 0; i < image.length; i++) {
-  image[i].outerHTML = "<span class='image block'>"+latex[i].outerHTML+"</span>";
+  image[i].outerHTML = "<span class='image block'>"+image[i].outerHTML+"</span>";
 }
 
 document.getElementById("collapse").onclick = function() {
