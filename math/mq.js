@@ -10,9 +10,9 @@ for(var i = 0; i < latex.length; i++) {
   latex[i].outerHTML = "<span class='image block'>"+latex[i].outerHTML+"</span>";
 }
 
-var image=document.getElementsByClassName("image");
-for(var i = 0; i < image.length; i++) {
-  image[i].outerHTML = "<span class='image block'>"+image[i].outerHTML+"</span>";
+var img=document.getElementsByClassName("img");
+for(var i = 0; i < img.length; i++) {
+  img[i].outerHTML = "<span class='image block'>"+img[i].outerHTML+"</span>";
 }
 
 document.getElementById("collapse").onclick = function() {
