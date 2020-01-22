@@ -10,6 +10,11 @@ for(var i = 0; i < latex.length; i++) {
   latex[i].outerHTML = "<span class='image block'>"+latex[i].outerHTML+"</span>";
 }
 
+var image=document.getElementsByClassName("image");
+for(var i = 0; i < image.length; i++) {
+  image[i].outerHTML = "<span class='image block'>"+latex[i].outerHTML+"</span>";
+}
+
 document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
   var myPreset = document.getElementsByClassName("preset");
