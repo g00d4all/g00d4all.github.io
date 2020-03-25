@@ -2,15 +2,18 @@
 <html>
 <head>
 <style>
-.body { font-size: 20pt;}
+body, input { font-size: x-large;}
+div {text-align: center;}
 </style>
 </head>
 <body>
+<div>
 <label for="cchar">请输入四个汉字：</label>
 <input type="text" id="cchar" name="cchar" value=""> 
 <label for="title">请输入字帖标题：</label>
 <input type="text" id="title" name="title" value="中文 G2.U1.L4.1">
 <input type="button" value="生成字帖" onclick="generateSheet();">
+</div>
 
 <script>
 function generateSheet() {
