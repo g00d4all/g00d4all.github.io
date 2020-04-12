@@ -10,6 +10,12 @@ for(var i = 0; i < latex.length; i++) {
   latex[i].outerHTML = "<span class='image block'>"+latex[i].outerHTML+"</span>";
 }
 
+var latex=document.getElementsByClassName("_latex");
+for(var i = 0; i < latex.length; i++) {
+  latex[i].src = "https://tex.s2cms.ru/svg/"+encodeURIComponent(latex[i].alt.trim());
+  latex[i].outerHTML = "<span class='image inline'>"+latex[i].outerHTML+"</span>";
+}
+
 var img=document.getElementsByClassName("img");
 for(var i = 0; i < img.length; i++) {
   img[i].outerHTML = "<span class='image block'>"+img[i].outerHTML+"</span>";
