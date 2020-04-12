@@ -25,6 +25,11 @@ span.image.block {
   text-align: center;
 }
 
+span.image.inline {
+  display: inline;
+  text-align: ;
+}
+
 img.tikz {
   margin: 8px auto
 }
