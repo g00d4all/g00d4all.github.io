@@ -2,123 +2,123 @@
   <head>
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js"></script>
   <style>
-    body { font: normal 1em "Segoe UI", Helvetica, Arial, "华文细黑", "微软雅黑", sans-serif !important;}
-    div {text-align: center;}
-    label {background: #ebedee; border-radius: 15px;}
-    input[type=text], input[type=number] {
-      text-align: center;
-      width: 8em;
-      border: none;
-      border-bottom: 1px solid black;  
-      color: blue;
-      font: normal 1.05em Georgia, Times, "Times New Roman", STKaiTi, KaiTi, "华文楷体", "楷体", serif !important;
-    }
-    input[type=button] {
-      border-radius: 15px;
-      border: 1px solid gray;  
-      background: #ebedee; 
-      font: normal 1em "Segoe UI", Helvetica, Arial, "华文细黑", "微软雅黑", sans-serif !important;
-    }
+  body { font: normal 1em "Segoe UI", Helvetica, Arial, "华文细黑", "微软雅黑", sans-serif !important;}
+  div {text-align: center;}
+  label {background: #ebedee; border-radius: 15px;}
+  input[type=text], input[type=number] {
+    text-align: center;
+    width: 8em;
+    border: none;
+    border-bottom: 1px solid black;  
+    color: blue;
+    font: normal 1.05em Georgia, Times, "Times New Roman", STKaiTi, KaiTi, "华文楷体", "楷体", serif !important;
+  }
+  input[type=button] {
+    border-radius: 15px;
+    border: 1px solid gray;  
+    background: #ebedee; 
+    font: normal 1em "Segoe UI", Helvetica, Arial, "华文细黑", "微软雅黑", sans-serif !important;
+  }
   </style>
   </head>
   <body>
-  <div>
-    <label for="cchar">请输入汉字字符：</label>
-    <input type="text" id="cchar" name="cchar" value="汉"> 
-    <label for="svgSize">图像大小（像素）：</label>
-    <input type="number" id="svgSize" name="svgSize" value=500>
-    <label for="strokesToHighlightRng">高亮笔画序号范围（如：“1-3, 5”表示高亮第1-3画和第5画）：</label>
-    <input type="text" id="strokesToHighlightRng" name="strokesToHighlightRng" value="1-3, 5">
-    <br><br>
-    <label for="highlightColor">高亮颜色（如：“green”或“#008000”或“rgb(0, 128, 0)”）：</label>
-    <input type="text" id="highlightColor" name="highlightColor" value="green">
-    <label for="nonHighlightColor">非高亮颜色（如：“gray”或“#808080”或“rgb(128, 128, 128)”）：</label>
-    <input type="text" id="nonHighlightColor" name="nonHighlightColor" value="gray">
-    <br><br>
-    <input type="button" value="生成SVG图像" onclick="generateSVG();">
-  </div>
-  <br>
-  <div id="target" oncontextmenu="saveAsSVG();"></div>
+<div>
+<label for="cchar">请输入汉字字符：</label>
+<input type="text" id="cchar" name="cchar" value="汉"> 
+<label for="svgSize">图像大小（像素）：</label>
+<input type="number" id="svgSize" name="svgSize" value=500>
+<label for="strokesToHighlightRng">高亮笔画序号范围（如：“1-3, 5”表示高亮第1-3画和第5画）：</label>
+<input type="text" id="strokesToHighlightRng" name="strokesToHighlightRng" value="1-3, 5">
+<br><br>
+<label for="highlightColor">高亮颜色（如：“green”或“#008000”或“rgb(0, 128, 0)”）：</label>
+<input type="text" id="highlightColor" name="highlightColor" value="green">
+<label for="nonHighlightColor">非高亮颜色（如：“gray”或“#808080”或“rgb(128, 128, 128)”）：</label>
+<input type="text" id="nonHighlightColor" name="nonHighlightColor" value="gray">
+<br><br>
+<input type="button" value="生成SVG图像" onclick="generateSVG();">
+</div>
+<br>
+<div id="target" onclick="saveAsSVG();" oncontextmenu="saveAsSVG();"></div>
 
-  <script>
-  function generateSVG() {
-    var cchar = document.getElementById("cchar").value.substring(0, 1);
-    var svgSize = document.getElementById("svgSize").value;
-    var strokesToHighlightRng = document.getElementById("strokesToHighlightRng").value;
-    var highlightColor = document.getElementById("highlightColor").value;
-    var nonHighlightColor = document.getElementById("nonHighlightColor").value;
-    var strokesToHighlightArr = [];
-    strokesToHighlightRng.split(",").forEach(function(item) {
-      const regex = /\s*(\d+)\s*-\s*(\d+)\s*/g;
-      if (regex.test(item)) {
-        for (i = Number(RegExp.$1.trim()); i <= Number(RegExp.$2.trim()); i++) {
-          strokesToHighlightArr.push(i);
-        }
-      } else {
-        strokesToHighlightArr.push(Number(item.trim()));
+<script>
+function generateSVG() {
+  var cchar = document.getElementById("cchar").value.substring(0, 1);
+  var svgSize = document.getElementById("svgSize").value;
+  var strokesToHighlightRng = document.getElementById("strokesToHighlightRng").value;
+  var highlightColor = document.getElementById("highlightColor").value;
+  var nonHighlightColor = document.getElementById("nonHighlightColor").value;
+  var strokesToHighlightArr = [];
+  strokesToHighlightRng.split(",").forEach(function(item) {
+    const regex = /\s*(\d+)\s*-\s*(\d+)\s*/g;
+    if (regex.test(item)) {
+      for (i = Number(RegExp.$1.trim()); i <= Number(RegExp.$2.trim()); i++) {
+        strokesToHighlightArr.push(i);
       }
-    });
-
-    HanziWriter.loadCharacterData(cchar).then(function(charData) {
-      var target = document.getElementById("target");
-      target.innerHTML = "";
-
-      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("width", svgSize + "px");
-      svg.setAttribute("height", svgSize + "px");
-      svg.setAttribute("role", "img");
-      target.appendChild(svg);
-
-      var title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-      title.innerHTML = cchar;
-      svg.appendChild(title);
-
-      var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      var transformData = HanziWriter.getScalingTransform(svgSize, svgSize);
-      group.setAttributeNS(null, "transform", transformData.transform);
-      svg.appendChild(group);
-
-
-      charData.strokes.forEach(function(strokePath, index) {
-        var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttributeNS(null, "d", strokePath);
-        path.setAttributeNS(null, "fill", (strokesToHighlightArr.includes(index + 1)) ? highlightColor : nonHighlightColor);
-        group.appendChild(path);
-      });
-
-    });
-
-  }
-
-  function saveAsSVG() {
-    //get svg element
-    var svg = document.getElementById("target").firstElementChild;
-
-    if (svg.tagName.toLowerCase() == "img") {
-      return;
+    } else {
+      strokesToHighlightArr.push(Number(item.trim()));
     }
+  });
 
-    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
-    svg.setAttribute("version", "1.1");
+  HanziWriter.loadCharacterData(cchar).then(function(charData) {
+    var target = document.getElementById("target");
+    target.innerHTML = "";
 
-    //get svg source
-    var serializer = new XMLSerializer();
-    var source = serializer.serializeToString(svg);
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", svgSize + "px");
+    svg.setAttribute("height", svgSize + "px");
+    svg.setAttribute("role", "img");
+    target.appendChild(svg);
 
-    //add xml declaration
-    source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+    var title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+    title.innerHTML = cchar;
+    svg.appendChild(title);
 
-    //convert svg source to URI data scheme
-    var imgURI = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
+    var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    var transformData = HanziWriter.getScalingTransform(svgSize, svgSize);
+    group.setAttributeNS(null, "transform", transformData.transform);
+    svg.appendChild(group);
 
-    //load svg as image source
-    document.getElementById("target").innerHTML = "<img width=\"" + svg.style.width + "\" height=\"" + svg.style.height + "\" src=\"" + imgURI + "\" title=\""+ svg.getElementsByTagName("title")[0].innerHTML +"\" alt=\'" + source + "\' />";
 
+    charData.strokes.forEach(function(strokePath, index) {
+      var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttributeNS(null, "d", strokePath);
+      path.setAttributeNS(null, "fill", (strokesToHighlightArr.includes(index + 1)) ? highlightColor : nonHighlightColor);
+      group.appendChild(path);
+    });
+
+  });
+
+}
+
+function saveAsSVG() {
+  //get svg element
+  var svg = document.getElementById("target").firstElementChild;
+
+  if (svg.tagName.toLowerCase() == "img") {
+    return;
   }
 
-  generateSVG();
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+  svg.setAttribute("version", "1.1");
 
-  </script>
+  //get svg source
+  var serializer = new XMLSerializer();
+  var source = serializer.serializeToString(svg);
+
+  //add xml declaration
+  source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+
+  //convert svg source to URI data scheme
+  var imgURI = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
+
+  //load svg as image source
+  document.getElementById("target").innerHTML = "<img width=\"" + svg.style.width + "\" height=\"" + svg.style.height + "\" src=\"" + imgURI + "\" title=\""+ svg.getElementsByTagName("title")[0].innerHTML +"\" alt=\'" + source + "\' />";
+
+}
+
+generateSVG();
+
+</script>
   </body>
   </html>
