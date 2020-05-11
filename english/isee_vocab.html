@@ -1,0 +1,79 @@
+  <html>
+  <head>
+  <title>ISEE Vocabulary</title>
+  <style>
+  body { font: normal 1.15em Georgia, Times, "Times New Roman", serif !important;}
+  div {
+  vertical-align:middle;
+  column-count: 3;
+  column-gap: 10px;
+  column-rule: 1px solid #c0c0c0;
+  }
+  ol {list-style-type: decimal; margin: 4px auto;}
+  li.li1 {background: #c0c0c0; text-transform: uppercase;}
+  li {margin:0; margin-top:4px;}
+  ol>ol {list-style-type: upper-alpha;}
+  @page {
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+   }
+
+  @media print {
+     /*
+     body {margin-top: 1cm; margin-bottom: 1cm; 
+           margin-left: 5mm; margin-right: 5mm}
+    */
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
+  }
+  </style>
+  </head>
+  <body>
+<h4>ISEE Vocabulary: Connotation</h4>
+<div id="words1"></div>
+<div class="pagebreak"></div>
+<h4>ISEE Vocabulary: Root</h4>
+<div id="words2"></div>
+<div class="pagebreak"></div>
+<h4>ISEE Vocabulary: Vocabulary</h4>
+<div id="words3"></div>
+<div class="pagebreak"></div>
+<h4>ISEE Vocabulary: Association</h4>
+<div id="words4"></div>
+
+<script>
+var words1 = "boon|benefit|trouble|vibration|virtue|cautious|bothered|unexpected|righteous|wary|obvious|blatant|glamorous|unknown|unclear|discredit|accept|accrete|accredit|malign|glee|decree|delight|fee|failure|suspect|dubious|entrust|established|respect|fiasco|abasement|disaster|mediocrity|triumph|devious|curious|dishonest|forthcoming|truthful|travesty|distortion|facsimile|replica|trouble|naive|apprehensive|credulous|indigenous|innate|amicable|carefree|detestable|friendly|insolent|outlandish|familiar|ordinary|plain|unorthodox|meek|controlling|insistent|sleek|submissive|abundant|instant|profuse|rare|restricted|renovation|destruction|forgiveness|improvement|understanding|hinder|enable|enhance|finalize|prevent|contempt|admiration|disrespect|fondness|regard|prosperity|abundance|entropy|proposal|scarcity|procrastinate|advance|delay|inspire|promote|squander|invest|traipse|waste|wonder|gullible|guilty|innocent|seasoned|suspicious|exemplary|admirable|excusable|habitable|innumerable|harass|entertain|pester|placate|support|frantic|misunderstood|serene|tame|wild|affluence|affliction|greed|shortage|wealth|livid|distressed|entranced|gleeful|impartial|admonish|adapt|admit|rebuke|reinforce|adverse|auspicious|beneficial|blessed|deleterious|terse|baffled|cordial|curt|verbose|reconciliation|agreement|approval|conversion|discord|devout|pious|stout|superficial|worldly|prudent|diminutive|foolhardy|sensible|unimaginative|futile|fruitful|meaningful|profound|vain|trite|banal|original|short|exclusive|provincial|foreign|patriotic|simple|victorious|disparage|adore|appraise|despair|vilify|palatial|beautiful|flat|glacial|grand|derision|contempt|desires|erosion|volition|infamy|disrepute|popularity|remembrance|reminiscence|ominous|decadent|promising|symphonic|threatening|insatiable|desirable|greedy|improper|angry|ingenuity|imagination|madness|perpetuity|reliability|quarrelsome|adaptive|argumentative|burdensome|fulsome|quandary|explanation|problem|reason|setting|preposterous|absurd|analogous|lucid|reasonable|exasperate|aerate|breathe|desire|frustrate|appall|apprehend|fortify|obey|shock|onerous|exhausting|heinous|singular|trivial|desecrate|enshrine|ooze|specify|violate|surreptitious|clear|open|repetitive|stealthy|travail|avail|countervail|struggle|success|roil|agitate|burn|recoil|work|bedlam|chaos|frustration|insanity|peace|slovenly|effective|heavenly|lovingly|sloppy|heedless|effortless|impetuous|measured|steady|trepidation|concern|courage|consolation|leisure|consternation|comfort|composure|dismay|transition|listless|enthused|giddy|languid|thoughtless|pallid|bright|colorful|dark|pale|precocious|mature|oblivious|precious|slow|serendipitous|deliberate|foolish|fortuitous|witless|infernal|annoying|enjoyable|understandable|welcome";
+
+var words2 = "hypothesis|affirmation|fact|forecast|guess|apprentice|artisan|instructor|master|novice|adhere|advertise|defy|obey|object|adept|infirm|new|proficient|unable|credible|appetizing|opinionated|plausible|tasty|lavish|frugal|meager|opulent|wish|advocate|champion|libeler|mentor|solicitor|subtle|apparent|complex|sublime|understated|acclaim|claim|demand|laud|reclaim|congregation|corporation|dissipate|gathering|line|amiable|accurate|eloquent|indecisive|pleasant|benign|approaching|imminent|kind|livid|conformist|follower|iconoclast|leader|radical|malicious|cruel|delicious|loving|savory|innovate|recreate|rescind|resplendent|respond|beneficence|avarice|generosity|jealousy|stinginess|fallible|flawless|impeccable|imperfect|unspoiled|volatile|apathetic|futile|unstable|voluntary|ponderous|buoyant|cumbersome|nimble|thoughtful|orator|entertainer|listener|dentist|speaker|belligerent|abiding|compliant|hostile|varicose|superfluous|enviable|excessive|fluid|peerless|servile|docile|masculine|repulsive|revile|incessant|eternal|finite|interrupted|yielding|empathy|apathy|compassion|indifference|telepathy|perturb|bother|excite|pacify|reassure|integrity|compromise|hysteria|sympathy|unity|incandescent|luminous|lusterless|matte|translucent|recapitulate|defeat|prevail|summarize|surrender|exacerbate|curtail|exact|intensify|mollify|philanthropist|accountant|donor|lawyer|soldier|sinuous|direct|illustrious|luscious|winding|pervade|dilute|evade|mediate|saturate|immutable|changeable|enduring|passing|transitory|disparity|equality|disparage|imbalance|symmetry|solace|calm|goad|incite|rouse|protracted|indefinite|limited|minimal|predictable|lucid|abjure|ambiguous|ambivalent|articulate|innocuous|depressing|harmless|poisonous|risky|dexterous|clumsy|deterrent|preventive|skillful|assiduous|attentive|careless|insidious|topical|portend|entrench|extend|pretend|prophesize|vitriolic|alcoholic|gloomy|spiteful|upbeat|salubrious|detrimental|healthy|loquacious|sacred|complacent|comprehensive|disgruntled|incomplete|satisfied|demagogue|judge|populist|priest|synagogue|saccharine|asinine|sacrifice|supine|sweet|anachronistic|antiquated|modern|opportune|unfortunate|tenacious|amorous|inquisitive|perilous|resolute|desultory|ambitious|discerning|intermittent|resilient|prodigal|careful|enormous|judicious|lavish|espouse|contradict|disagree|endorse|marry|parsimony|charity|congruence|dissonance|miserliness|risible|fantastic|funny|logical|rational|aspersion|dispersion|praise|revulsion|slander|jocular|boring|dangerous|humorous|serious|torpor|exception|excitement|normalcy|weariness|elucidate|clarify|darken|impede|muddle|acuity|authenticity|ignorance|intelligence|sincerity|dolorous|engaged|exultant|indolent|miserable|implacable|impersonal|merciless|supple|unbearable";
+
+var words3 = "spontaneity|deliberation|intent|purpose|randomness|compromise|advertise|believe|concede|pledge|deceptive|accessible|amenable|furious|misleading|consume|complete|devour|presume|resume|possible|feasible|intricate|strenuous|unreasonable|lethargic|deadly|energetic|lazy|vigorous|passion|ennui|fashion|style|zeal|blunder|calculate|flounder|mistake|standardize|incompatible|appropriate|fitted|mobile|opposite|greed|avarice|aversion|aviary|aviation|rampage|adage|campaign|devalue|riot|divergent|comparable|contradictory|resurgent|verdant|careless|negligent|precise|thorough|thoughtful|convergence|edge|intersection|resurgence|separation|anecdote|ancillary|cure|dotage|story|holistic|complete|partial|projected|prophesied|transient|fleeting|ineffaceable|lasting|permanent|diligent|harmful|industrious|insurgent|lacking|deference|defense|interruption|obedience|position|digression|concentration|detour|emphasis|focus|guile|confusion|honesty|persuasion|trickery|cavalier|healthier|nonchalant|superior|valiant|resolute|doable|tenacious|wavering|weak|peripheral|central|essential|fringe|relevant|epithet|description|personality|slur|temperament|absolution|accusation|conviction|outcome|pardon|dissipate|condense|demolish|reappear|vanish|raucous|distinct|noisy|quiet|vague|incorrigible|dynamic|erratic|flexible|hopeless|pristine|expansive|feral|pure|sullied|camaraderie|convention|reverie|trust|wariness|potable|adulterated|clean|filthy|foul|ascetic|acidic|certain|humble|mysterious|bastion|adoption|faction|home|stronghold|expedient|peculiar|pernicious|persistent|practical|shirk|avoid|quirk|expect|vex|grapple|apprehend|struggle|understand|verify|rapacious|covetous|delicious|distinctiveness|indifferent|prosaic|expert|mosaic|mundane|poetic|extricate|ingrain|inter|observe|remove|tremulous|assertive|ferocious|nervous|tremendous|pique|apex|appease|glimpse|intrigue|redolent|bitter|blinding|evocative|supplemental|indolence|audacity|idleness|insolence|sadness|dissonance|assonance|conflict|harmony|recurrence|euphonious|brash|chaotic|loud|melodious|hackneyed|common|creative|imagined|unique|rancorous|content|grateful|putrid|resentful|censure|bond|criticism|forfeiture|guarantee|prescience|history|intuition|sorcery|skill|sagacity|absurdity|inanity|quackery|wisdom|evince|depress|evict|express|suppress|umbrage|craze|protection|resentment|tribute|caprice|accountability|instability|threshold|worth|assuage|persuade|pressure|relieve|upset|intercede|intervene|relinquish|remediate|secede|obsolescent|graceful|radiant|useless|youthful|capacious|ample|eager|fickle|impulsive|garrulous|taciturn|talkative|temperamental|typical|fastidious|exacting|intellectual|negligent|ravenous|obstreperous|discreet|private|restrained|rowdy";
+
+var words4 = "novel|slum|spade|traditional|unfamiliar|liberate|abdicate|release|spite|subjugate|fluent|affluent|conventional|remarkable|versed|arrogant|elegant|intrusive|meek|proud|corruption|abstraction|dishonesty|infection|resolution|intrepid|animated|fearless|tepid|wonderful|inconsequential|orderly|paltry|random|significant|longevity|brevity|endurance|seniority|weakness|conditional|dependent|improved|refined|suggestive|atrocious|anxious|horrible|passable|vicarious|inevitable|destined|detested|eventful|viable|esteem|approximation|reverence|surplus|vapor|enigma|dogma|riddle|solution|stigma|tentative|contemplative|experienced|known|temporary|denounce|announce|condemn|err|report|strut|construct|parade|stir|structure|scrutinize|forge|identify|inspect|organize|reclusive|alternate|hidden|preventative|resting|epiphany|cacophony|dream|idea|regret|emulate|detain|mirror|regulate|scar|cadence|echo|resonance|reverberation|rhythm|exasperation|annoyance|aspiration|beauty|breath|sedate|astute|composed|populate|rapid|endear|disavow|dissuade|employ|recommend|discord|pandemonium|record|tranquility|uniformity|motley|consistent|diverse|identical|uniform|erratic|committed|secure|static|turbulent|ecstasy|fantasy|happiness|melancholy|simplicity|immaterial|ethereal|irrelevant|substantial|weighty|jostle|encroach|jeopardize|joke|push|dwindle|coil|disappear|engage|kindle|prolific|abundant|bland|resourceful|vital|forthright|duplicitous|fraudulent|honest|opaque|substantiate|enlarge|prove|subsist|trick|revere|honor|provoke|understand|vision|paramount|finicky|important|petty|trifling|coddle|addle|deny|indulge|rebuff|immaculate|aflame|graduate|impassioned|perfect|asylum|bottle|family|prophesy|refuge|seethe|beam|smolder|squirm|teethe|flippant|deferential|disrespectful|elusive|polite|lobbyist|advocate|collector|doorman|receptionist|dissent|consent|insult|oppose|promote|provocative|irritating|miserly|pronounced|vocal|coerce|associate|buttress|complement|force|contrite|banal|pointless|repentant|unoriginal|drone|admire|buzz|copy|whisper|dogmatic|automatic|carnivorous|rigid|tolerant|extenuating|expected|extensive|mitigating|tenuous|discern|contest|detect|hold|worry|heretic|applicant|defendant|dissenter|hearsay|atrophy|award|decay|grow|improve|tangent|conformity|departure|following|path|magnanimous|generous|helpful|magnetic|stingy|florid|flushed|fragrant|joyful|pretty|abscond|escape|greet|pilfer|rupture|fervent|adopt|encourage|passionate|preclude|mendacity|capacity|lies|repairs|towns|constituent|component|document|folio|parcel|ostentatious|friendly|gaudy|hazardous|ostensible";
+
+function createList(wordsstr) {
+var words = wordsstr.split("|");
+
+var htmlStr = `<ol>`;
+for (i=0; i<words.length; i+=5) {
+htmlStr += `
+  <li class="li1">${words[i]}</li>
+  <ol>
+  <li>${words[i+1]}</li>
+  <li>${words[i+2]}</li>
+  <li>${words[i+3]}</li>
+  <li>${words[i+4]}</li>
+  </ol>
+`;
+}
+htmlStr += `</ol>`;
+
+return htmlStr;
+}
+
+document.getElementById("words1").innerHTML = createList(words1);
+document.getElementById("words2").innerHTML = createList(words2);
+document.getElementById("words3").innerHTML = createList(words3);
+document.getElementById("words4").innerHTML = createList(words4);
+
+</script>
+  </body>
+  </html>
