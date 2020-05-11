@@ -36,7 +36,6 @@ function generateSVG(target, svgSize, cchar, strokeToHighlight, highlightColor, 
 table {
   font: 24px KaiTi;
   margin:auto;
-  margin-top: 80px;
   border-collapse:collapse;
 }
 td, th {
@@ -49,13 +48,20 @@ td, th {
 tr > :not(:nth-child(5n)) {
   padding: 2px 5px;
 }
+tr > :nth-child(5n) {
+  border: 0;
+}
 caption {
   font: bold 30px KaiTi;
   margin: 10px auto;
 }
+thead, tfoot{
+  border-top: 1px solid lightgray;
+}
+
 tfoot>tr>td{
   text-align:left;
-  font: 14px Times New Roman,FangSong;
+  font: 14px "Times New Roman", FangSong;
   border: 0;
 }
 svg {
@@ -88,9 +94,9 @@ var strokesArray = [
   ["横折折", "凹", 2],
   ["横折弯", "朵", 2],
   ["横折弯钩", "九", 2],
-  ["横斜钩", "飞", 1],
   ["横斜弯钩", "乙", 1],
-  ["横撇弯*", "这", 6],
+  ["横斜钩", "飞", 1],
+  ["横撇弯", "这", 6],
   ["横折折撇", "及", 2],
   ["横折折折", "凸", 4],
   ["横折折折钩", "奶", 4],
@@ -116,12 +122,12 @@ htmlStr = `
   <tr>
     <th>序号</th>
     <th>笔画</th>
-    <th>名称</th>
+    <th>简称</th>
     <th>例字</th>
     <th></th>
     <th>序号</th>
     <th>笔画</th>
-    <th>名称</th>
+    <th>简称</th>
     <th>例字</th>
   </tr>
 </thead>
