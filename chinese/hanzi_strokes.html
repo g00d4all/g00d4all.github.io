@@ -6,13 +6,18 @@
   <title>汉字基本笔画表</title>
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js"></script>
   <script>
-    function generateSVG(target, svgSize, cchar, strokeToHighlight, highlightColor, noneHighlightColor, otherStrokesNoFill = false) {
+    function generateSVG(target, svgSize, cchar, titleText, strokeToHighlight, highlightColor, noneHighlightColor, otherStrokesNoFill = false) {
     
       HanziWriter.loadCharacterData(cchar).then(function(charData) {
         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttributeNS(null, "style", `width: ${svgSize}px; height: ${svgSize}px;`);
+        svg.setAttributeNS(null, "role", "img");
         target.appendChild(svg);
-    
+
+        var title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+        title.innerHTML = titleText;
+        svg.appendChild(title);
+
         var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
     
         var transformData = HanziWriter.getScalingTransform(svgSize, svgSize);
@@ -30,15 +35,19 @@
     
     }
     
-    function generateSVG2(target, svgSize, cchar, strokeToHighlight, highlightColor) {
+    function generateSVG2(target, svgSize, cchar, titleText, strokeToHighlight, highlightColor) {
     
       HanziWriter.loadCharacterData(cchar).then(function(charData) {
         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttributeNS(null, "style", `width: ${svgSize}px; height: ${svgSize}px;`);
+        svg.setAttributeNS(null, "role", "img");
         target.appendChild(svg);
-    
+
+        var title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+        title.innerHTML = titleText;
+        svg.appendChild(title);
+
         var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    
         var transformData = HanziWriter.getScalingTransform(svgSize, svgSize);
         group.setAttributeNS(null, "transform", transformData.transform);
         svg.appendChild(group);
@@ -210,10 +219,10 @@
     
     var elTD = document.querySelectorAll("td");
     for (i = 0; i < Math.ceil(strokesArray.length / 2); i++) {
-      generateSVG2(elTD[i * 9 + 1], 40, strokesArray[i][1], strokesArray[i][2], "green");
-      generateSVG(elTD[i * 9 + 3], 40, strokesArray[i][1], strokesArray[i][2], "green", "gray", false);
-      generateSVG2(elTD[i * 9 + 6], 40, strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][2], "green");
-      generateSVG(elTD[i * 9 + 8], 40, strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][2], "green", "gray", false);
+      generateSVG2(elTD[i * 9 + 1], 40, strokesArray[i][1], strokesArray[i][0], strokesArray[i][2], "green");
+      generateSVG(elTD[i * 9 + 3], 40, strokesArray[i][1], strokesArray[i][1], strokesArray[i][2], "green", "gray", false);
+      generateSVG2(elTD[i * 9 + 6], 40, strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][0], strokesArray[i + Math.ceil(strokesArray.length / 2)][2], "green");
+      generateSVG(elTD[i * 9 + 8], 40, strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][2], "green", "gray", false);
     }
   </script>
 </body>
