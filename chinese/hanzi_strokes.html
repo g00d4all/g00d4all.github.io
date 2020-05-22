@@ -1,197 +1,216 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>汉字基本笔画表</title>
-<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js"></script>
-
-<script>
-function generateSVG(target, svgSize, cchar, strokeToHighlight, highlightColor, noneHighlightColor, otherStrokesNoFill = false) {
-
-  HanziWriter.loadCharacterData(cchar).then(function(charData) {
-    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.style.width = svgSize + "px";
-    svg.style.height = svgSize + "px";
-    target.appendChild(svg);
-
-    var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-
-    var transformData = HanziWriter.getScalingTransform(svgSize, svgSize);
-    group.setAttributeNS(null, "transform", transformData.transform);
-    svg.appendChild(group);
-
-    charData.strokes.forEach(function(strokePath, index) {
-      var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      path.setAttributeNS(null, "d", strokePath);
-      path.style.fill = (index == strokeToHighlight-1) ? highlightColor : ((otherStrokesNoFill) ? "none" : noneHighlightColor);
-      group.appendChild(path);
-    });
-
-  });
-
-}
-</script>
-
-<style>
-table {
-  font: 24px KaiTi;
-  margin:auto;
-  border-collapse:collapse;
-}
-td, th {
-  text-align:center;
-  border: 1px solid lightgray;
-  margin: 0;
-  align-items: center;
-  height: 100%;
-}
-tr > :not(:nth-child(5n)) {
-  padding: 2px 5px;
-}
-tr > :nth-child(5n) {
-  border: 0;
-}
-caption {
-  font: bold 30px KaiTi;
-  margin: 10px auto;
-}
-thead, tfoot{
-  border-top: 1px solid lightgray;
-}
-
-tfoot>tr>td{
-  text-align:left;
-  font: 14px "Times New Roman", FangSong;
-  border: 0;
-}
-svg {
-  margin: 0 auto;
-  height: 100%;
-  display: block;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>汉字基本笔画表</title>
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js"></script>
+  <script>
+    function generateSVG(target, svgSize, cchar, strokeToHighlight, highlightColor, noneHighlightColor, otherStrokesNoFill = false) {
+    
+      HanziWriter.loadCharacterData(cchar).then(function(charData) {
+        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttributeNS(null, "style", `width: ${svgSize}px; height: ${svgSize}px;`);
+        target.appendChild(svg);
+    
+        var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    
+        var transformData = HanziWriter.getScalingTransform(svgSize, svgSize);
+        group.setAttributeNS(null, "transform", transformData.transform);
+        svg.appendChild(group);
+    
+        charData.strokes.forEach(function(strokePath, index) {
+          var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttributeNS(null, "d", strokePath);
+          path.setAttributeNS(null, "fill", (index == strokeToHighlight-1) ? highlightColor : ((otherStrokesNoFill) ? "none" : noneHighlightColor));
+          group.appendChild(path);
+        });
+    
+      });
+    
+    }
+    
+    function generateSVG2(target, svgSize, cchar, strokeToHighlight, highlightColor) {
+    
+      HanziWriter.loadCharacterData(cchar).then(function(charData) {
+        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttributeNS(null, "style", `width: ${svgSize}px; height: ${svgSize}px;`);
+        target.appendChild(svg);
+    
+        var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    
+        var transformData = HanziWriter.getScalingTransform(svgSize, svgSize);
+        group.setAttributeNS(null, "transform", transformData.transform);
+        svg.appendChild(group);
+    
+        var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttributeNS(null, "d", charData.strokes[strokeToHighlight-1]);
+        path.setAttributeNS(null, "fill", highlightColor);
+        group.appendChild(path);
+    
+        var bbox1 = svg.getBoundingClientRect();
+        var bbox2 = group.getBoundingClientRect();
+        var centerX = bbox2.left - bbox1.left + bbox2.width / 2;
+        var centerY = bbox2.top - bbox1.top + bbox2.height / 2;
+    
+        var tfls = group.transform.baseVal;
+        for (var i=0; i<tfls.length; i++) {
+          var mat = tfls[i].matrix; 
+          switch (tfls[i].type) {
+            case 2:
+              var translateX = mat.e;
+              var translateY = mat.f;
+              break;
+            case 3:
+              var scaleX = mat.a;
+              var scaleY = mat.d;
+              break;
+          }
+        }
+    
+        group.setAttributeNS(null, "transform", `translate(${translateX + svgSize / 2 - centerX}, ${translateY + svgSize / 2 - centerY}) scale(${scaleX}, ${scaleY})`);
+    
+      });
+    
+    }
+  </script>
+  <style>
+    table {
+      font: 24px KaiTi;
+      margin:auto;
+      border-collapse:collapse;
+    }
+    td, th {
+      text-align:center;
+      border: 1px solid lightgray;
+      margin: 0;
+      align-items: center;
+      height: 100%;
+    }
+    tr > :not(:nth-child(5n)) {
+      padding: 2px 5px;
+    }
+    tr > :nth-child(5n) {
+      border: 0;
+    }
+    caption {
+      font: bold 30px KaiTi;
+      margin: 10px auto;
+    }
+    thead, tfoot{
+      border-top: 1px solid lightgray;
+    }
+    
+    tfoot>tr>td{
+      text-align:left;
+      font: 14px "Times New Roman", FangSong;
+      border: 0;
+    }
+    svg {
+      margin: 0 auto;
+      height: 100%;
+      display: block;
+    }
+  </style>
 </head>
+
 <body>
-
-<script>
-var strokesArray = [
-  ["横", "大", 1],
-  ["提", "习", 3],
-  ["竖", "中", 4],
-  ["竖钩", "小", 1],
-  ["撇", "人", 1],
-  ["竖撇", "几", 1],
-  ["点", "主", 1],
-  ["左点", "小", 2],
-  ["长点", "凶", 2],
-  ["捺", "八", 2],
-  ["平捺", "之", 3],
-  ["横钩", "买", 1],
-  ["横撇", "水", 2],
-  ["横折", "口", 2],
-  ["横折钩", "月", 2],
-  ["横折提", "认", 2],
-  ["横折折", "凹", 2],
-  ["横折弯", "朵", 2],
-  ["横折弯钩", "九", 2],
-  ["横斜弯钩", "乙", 1],
-  ["横斜钩", "飞", 1],
-  ["横撇弯", "这", 6],
-  ["横折折撇", "及", 2],
-  ["横折折折", "凸", 4],
-  ["横折折折钩", "奶", 4],
-  ["横撇弯钩", "那", 5],
-  ["竖提", "长", 3],
-  ["竖弯", "西", 5],
-  ["竖弯钩", "儿", 2],
-  ["竖折", "山", 2],
-  ["竖折折", "鼎", 6],
-  ["竖折折钩", "马", 2],
-  ["竖折撇", "专", 3],
-  ["撇折", "云", 3],
-  ["撇点", "女", 1],
-  ["弯钩", "家", 6],
-  ["斜钩", "我", 5],
-  ["卧钩", "心", 2],
-];
-
-htmlStr = `
-<table>
-<caption>汉字基本笔画表</caption>
-<thead>
-  <tr>
-    <th>序号</th>
-    <th>笔画</th>
-    <th>简称</th>
-    <th>例字</th>
-    <th></th>
-    <th>序号</th>
-    <th>笔画</th>
-    <th>简称</th>
-    <th>例字</th>
-  </tr>
-</thead>
-<tbody>
-`;
-
-/*
-for (i=0; i<Math.ceil(strokesArray.length/2); i++) {
-htmlStr += `
-  <tr>
-    <td>${i+1}</td>
-    <td>${createSVG(strokesArray[i][1], strokesArray[i][2], true)}</td>
-    <td>${strokesArray[i][0]}</td>
-    <td>${createSVG(strokesArray[i][1], strokesArray[i][2])}</td>
-    <td></td>
-    <td>${i+1+Math.ceil(strokesArray.length/2)}</td>
-    <td>${createSVG(strokesArray[i][1], strokesArray[i+Math.ceil(strokesArray.length/2)][2]), true}</td>
-    <td>${strokesArray[i+Math.ceil(strokesArray.length/2)][0]}</td>
-    <td>${createSVG(strokesArray[i][1], strokesArray[i+Math.ceil(strokesArray.length/2)][2])}</td>
-  </tr>
-`;
-}
-*/
-
-for (i = 0; i < Math.ceil(strokesArray.length / 2); i++) {
-  htmlStr += `
-  <tr>
-    <td>${i+1}</td>
-    <td></td>
-    <td>${strokesArray[i][0]}</td>
-    <td></td>
-    <td></td>
-    <td>${i+1+Math.ceil(strokesArray.length/2)}</td>
-    <td></td>
-    <td>${strokesArray[i+Math.ceil(strokesArray.length/2)][0]}</td>
-    <td></td>
-  </tr>
-`;
-}
-
-htmlStr += `
-</tbody>
-<tfoot>
-  <tr>
-    <td colspan="9">参考：<a href="https://zh.wikipedia.org/wiki/%E7%AC%94%E7%94%BB">Wikipedia</a></td>
-  </tr>
-</tfoot>
-</table>
-`;
-
-document.write(htmlStr);
-
-var elTD = document.querySelectorAll("td");
-for (i = 0; i < Math.ceil(strokesArray.length / 2); i++) {
-  generateSVG(elTD[i * 9 + 1], 40, strokesArray[i][1], strokesArray[i][2], "green", "gray", true);
-  generateSVG(elTD[i * 9 + 3], 40, strokesArray[i][1], strokesArray[i][2], "green", "gray", false);
-  generateSVG(elTD[i * 9 + 6], 40, strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][2], "green", "gray", true);
-  generateSVG(elTD[i * 9 + 8], 40, strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][2], "green", "gray", false);
-}
-
-</script>
-
+  <script>
+    var strokesArray = [
+      ["横", "大", 1],
+      ["提", "习", 3],
+      ["竖", "中", 4],
+      ["竖钩", "小", 1],
+      ["撇", "人", 1],
+      ["竖撇", "几", 1],
+      ["点", "主", 1],
+      ["左点", "小", 2],
+      ["长点", "凶", 2],
+      ["捺", "八", 2],
+      ["平捺", "之", 3],
+      ["横钩", "买", 1],
+      ["横撇", "水", 2],
+      ["横折", "口", 2],
+      ["横折钩", "月", 2],
+      ["横折提", "认", 2],
+      ["横折折", "凹", 2],
+      ["横折弯", "朵", 2],
+      ["横折弯钩", "九", 2],
+      ["横斜弯钩", "乙", 1],
+      ["横斜钩", "飞", 1],
+      ["横撇弯", "这", 6],
+      ["横折折撇", "及", 2],
+      ["横折折折", "凸", 4],
+      ["横折折折钩", "奶", 4],
+      ["横撇弯钩", "那", 5],
+      ["竖提", "长", 3],
+      ["竖弯", "西", 5],
+      ["竖弯钩", "儿", 2],
+      ["竖折", "山", 2],
+      ["竖折折", "鼎", 6],
+      ["竖折折钩", "马", 2],
+      ["竖折撇", "专", 3],
+      ["撇折", "云", 3],
+      ["撇点", "女", 1],
+      ["弯钩", "家", 6],
+      ["斜钩", "我", 5],
+      ["卧钩", "心", 2],
+    ];
+    
+    htmlStr = `
+    <table>
+    <caption>汉字基本笔画表</caption>
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>笔画</th>
+        <th>简称</th>
+        <th>例字</th>
+        <th></th>
+        <th>序号</th>
+        <th>笔画</th>
+        <th>简称</th>
+        <th>例字</th>
+      </tr>
+    </thead>
+    <tbody>
+    `;
+       
+    for (i = 0; i < Math.ceil(strokesArray.length / 2); i++) {
+      htmlStr += `
+      <tr>
+        <td>${i+1}</td>
+        <td></td>
+        <td>${strokesArray[i][0]}</td>
+        <td></td>
+        <td></td>
+        <td>${i+1+Math.ceil(strokesArray.length/2)}</td>
+        <td></td>
+        <td>${strokesArray[i+Math.ceil(strokesArray.length/2)][0]}</td>
+        <td></td>
+      </tr>
+    `;
+    }
+    
+    htmlStr += `
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="9"><b>参考</b>：<a href="https://zh.wikipedia.org/wiki/%E7%AC%94%E7%94%BB">Wikipedia</a>，<a href="https://hanziwriter.org">Hanzi Writer项目</a>&emsp;<b>更新</b>：2020年5月22日</td>
+      </tr>
+    </tfoot>
+    </table>
+    `;
+    
+    document.write(htmlStr);
+    
+    var elTD = document.querySelectorAll("td");
+    for (i = 0; i < Math.ceil(strokesArray.length / 2); i++) {
+      generateSVG2(elTD[i * 9 + 1], 40, strokesArray[i][1], strokesArray[i][2], "green");
+      generateSVG(elTD[i * 9 + 3], 40, strokesArray[i][1], strokesArray[i][2], "green", "gray", false);
+      generateSVG2(elTD[i * 9 + 6], 40, strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][2], "green");
+      generateSVG(elTD[i * 9 + 8], 40, strokesArray[i + Math.ceil(strokesArray.length / 2)][1], strokesArray[i + Math.ceil(strokesArray.length / 2)][2], "green", "gray", false);
+    }
+  </script>
 </body>
 </html>
-
-
-
