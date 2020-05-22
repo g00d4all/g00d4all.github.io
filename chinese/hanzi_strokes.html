@@ -4,7 +4,59 @@
 <head>
   <meta charset="utf-8">
   <title>汉字基本笔画表</title>
+
+  <style>
+    @font-face {
+      font-family: "mySTKaiti";
+      src: url("https://g00d4all.github.io/fonts/SinoType/STKaiti/stkaiti-webfont.woff2") format("woff2"),
+           url("https://g00d4all.github.io/fonts/SinoType/STKaiti/stkaiti-webfont.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+    }
+    table {
+      font: 24px STKaiti, KaiTi, mySTKaiti;
+      margin:auto;
+      border-collapse:collapse;
+    }
+    td, th {
+      text-align:center;
+      border: 1px solid lightgray;
+      margin: 0;
+      align-items: center;
+      height: 100%;
+    }
+    tr > :not(:nth-child(5n)) {
+      padding: 2px 5px;
+    }
+    tr > :nth-child(5n) {
+      border: 0;
+    }
+    caption {
+      font: 30px bold STKaiti, KaiTi, mySTKaiti;
+      margin: 10px auto;
+    }
+    thead, tfoot{
+      border-top: 1px solid lightgray;
+    }
+    
+    tfoot>tr>td{
+      text-align:left;
+      font: 14px "Times New Roman", STFangsong, FangSong;
+      border: 0;
+    }
+    svg {
+      margin: 0 auto;
+      height: 100%;
+      display: block;
+    }
+    a {
+      color: #0000EE;
+      text-decorations: none; 
+    }
+  </style>
+
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js"></script>
+
   <script>
     function generateSVG(target, svgSize, cchar, titleText, strokeToHighlight, highlightColor, noneHighlightColor, otherStrokesNoFill = false) {
     
@@ -83,48 +135,6 @@
     
     }
   </script>
-  <style>
-    table {
-      font: 24px KaiTi;
-      margin:auto;
-      border-collapse:collapse;
-    }
-    td, th {
-      text-align:center;
-      border: 1px solid lightgray;
-      margin: 0;
-      align-items: center;
-      height: 100%;
-    }
-    tr > :not(:nth-child(5n)) {
-      padding: 2px 5px;
-    }
-    tr > :nth-child(5n) {
-      border: 0;
-    }
-    caption {
-      font: bold 30px STKaiti KaiTi;
-      margin: 10px auto;
-    }
-    thead, tfoot{
-      border-top: 1px solid lightgray;
-    }
-    
-    tfoot>tr>td{
-      text-align:left;
-      font: 14px "Times New Roman", STFangsong, FangSong;
-      border: 0;
-    }
-    svg {
-      margin: 0 auto;
-      height: 100%;
-      display: block;
-    }
-    a {
-      color: #0000EE;
-      text-decorations: none; 
-    }
-  </style>
 </head>
 
 <body>
