@@ -36,7 +36,7 @@ document.getElementById("print").onclick = function() {
   </body>
   </html>
   `);
-  myWindow.document.body.appendChild(document.getElementsByClassName("previewPage")[0].cloneNode(true));
+  myWindow.document.body.appendChild(document.getElementsById("preview-content").cloneNode(true));
   myWindow.document.close();
   myWindow.focus();
   myWindow.print();
