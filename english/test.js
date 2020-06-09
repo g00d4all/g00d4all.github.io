@@ -29,8 +29,6 @@ document.getElementById("print").onclick = function() {
   <html>
   <head>
   <title>${document.getElementsByClassName("preview-paragraph-0 preview-line 0")[0].innerText.trim()}</title>
-  <link rel="stylesheet" type="text/css" href="https://g00d4all.github.io/english/test.css">
-  <script type="text/javascript" src="https://g00d4all.github.io/english/test.js"></script>
   </head>
   <body>
   </body>
@@ -39,7 +37,6 @@ document.getElementById("print").onclick = function() {
   myWindow.document.body.appendChild(document.getElementById("preview-content").cloneNode(true));
   myWindow.document.getElementById("print").remove();
   myWindow.document.getElementById("icon").remove();  
-  //myWindow.document.body.appendChild(document.getElementsByClassName("previewPage")[0].cloneNode(true));
   myWindow.document.close();
   myWindow.focus();
   myWindow.print();
