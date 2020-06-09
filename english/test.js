@@ -29,6 +29,8 @@ document.getElementById("print").onclick = function() {
   <html>
   <head>
   <title>${document.getElementsByClassName("preview-paragraph-0 preview-line 0")[0].innerText.trim()}</title>
+  <link rel="stylesheet" type="text/css" href="https://g00d4all.github.io/english/test.css">
+  <script type="text/javascript" src="https://g00d4all.github.io/english/test.js"></script>
   </head>
   <body>
   </body>
