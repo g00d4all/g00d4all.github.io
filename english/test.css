@@ -1,0 +1,22 @@
+.button {
+  border-radius: 10px;
+  background: transparent;
+}
+
+#icon {
+  display: none;
+}
+
+div#preview div[class^="preview-paragraph"] {margin-bottom: 0.5em;}
+div#preview .highlight {color: blue; font-style: normal; font-weight: bold;}
+div#preview ol {column-count: 2; column-gap: 4em; column-rule: 1px solid #c0c0c0;}
+div#preview .footer {
+  text-align: center;
+  color:#dcdcdc;
+  font-size: 6pt;
+  -webkit-transform:rotate(-180deg);
+}
+@media print {
+  .pagebreak { page-break-after: always;}
+  .footer{ position:relative; top:-20px; height:10px;}
+}
