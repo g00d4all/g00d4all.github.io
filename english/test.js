@@ -33,7 +33,7 @@ document.getElementById("print").onclick = function() {
   <script type="text/javascript" src="https://g00d4all.github.io/english/test.js"></script>
   <style>
   html * {
-    font-family: "CMU Serif", Times, "Times New Roman", serif;
+    font-family: Times, "Times New Roman", serif;
   }
   </style>
   </head>
