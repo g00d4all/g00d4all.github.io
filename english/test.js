@@ -37,8 +37,8 @@ document.getElementById("print").onclick = function() {
   </html>
   `);
   var clone = document.getElementById("preview-content");
-  clone.getElementById("print").remove();
-  clone.getElementById("icon").remove();
+  clone.querySelector("#print").remove();
+  clone.querySelector("#icon").remove();
   myWindow.document.body.appendChild(clone.cloneNode(true));
   //myWindow.document.body.appendChild(document.getElementById("preview-content").cloneNode(true));
   //myWindow.document.getElementById("print").remove();
