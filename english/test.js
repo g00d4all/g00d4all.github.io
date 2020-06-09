@@ -36,11 +36,10 @@ document.getElementById("print").onclick = function() {
   </body>
   </html>
   `);
-  //myWindow.document.body.appendChild(document.getElementById('preview-content').cloneNode(true));
-  //myWindow.document.body.appendChild(document.getElementsByClass("previewPage")[0].cloneNode(true));
-  myWindow.document.body.appendChild(document.getElementById("preview-content").cloneNode(true));
+ //myWindow.document.body.appendChild(document.getElementById("preview-content").cloneNode(true));
   //myWindow.document.getElementById("print").remove();
-  //myWindow.document.getElementById("icon").remove();
+  //myWindow.document.getElementById("icon").remove();  
+  myWindow.document.body.appendChild(document.getElementsByClassName("previewPage")[0].cloneNode(true));
   myWindow.document.close();
   myWindow.focus();
   myWindow.print();
