@@ -1,4 +1,4 @@
-
+/*
 document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
   var myPreset = document.getElementsByClassName("preset");
@@ -21,6 +21,7 @@ document.getElementById("collapse").onclick = function() {
     this.value = String.fromCharCode(0x2795);
   }
 }
+*/
 
 document.getElementById("print").onclick = function() {
   var myWindow = window.open();
