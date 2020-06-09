@@ -7,10 +7,10 @@
   display: none;
 }
 
-div#preview div[class^="preview-paragraph"] {margin-bottom: 0.5em;}
-div#preview .highlight {color: blue; font-style: normal; font-weight: bold;}
-div#preview ol {column-count: 2; column-gap: 4em; column-rule: 1px solid #c0c0c0;}
-div#preview .footer {
+div#preview-content div[class^="preview-paragraph"] {margin-bottom: 0.5em;}
+div#preview-content .highlight {color: blue; font-style: normal; font-weight: bold;}
+div#preview-content ol {column-count: 2; column-gap: 4em; column-rule: 1px solid #c0c0c0;}
+div#preview-content .footer {
   text-align: center;
   color:#dcdcdc;
   font-size: 6pt;
