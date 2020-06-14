@@ -40,6 +40,13 @@ document.getElementById("print").onclick = function() {
   clone.querySelector("#print").remove();
   clone.querySelector("#icon").remove();
   myWindow.document.body.appendChild(clone); 
+  
+  clone = document.getElementById("MJX-SVG-styles").cloneNode(true);
+  myWindow.document.head.appendChild(clone); 
+  
+  clone = document.getElementById("Mathpix-styles").cloneNode(true);
+  myWindow.document.head.appendChild(clone); 
+  
   //myWindow.document.querySelector("#print").remove();
   //myWindow.document.querySelector("#icon").remove();
   myWindow.document.close();
