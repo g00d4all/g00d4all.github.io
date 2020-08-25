@@ -21,6 +21,11 @@ for(var i = 0; i < img.length; i++) {
   img[i].outerHTML = "<span class='image block'>"+img[i].outerHTML+"</span>";
 }
 
+var img=document.querySelectorAll('[alt="center"]')
+for(var i = 0; i < img.length; i++) {
+  img[i].outerHTML = "<span class='image block'>"+img[i].outerHTML+"</span>";
+}
+
 document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
   var myPreset = document.getElementsByClassName("preset");
