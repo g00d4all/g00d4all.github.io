@@ -26,6 +26,11 @@ for(var i = 0; i < img.length; i++) {
   img[i].outerHTML = "<span class='image block'>"+img[i].outerHTML+"</span>";
 }
 
+var img=document.querySelectorAll("code[class*='language-xtikz']")
+for(var i = 0; i < img.length; i++) {
+  img[i].outerHTML = "<span class='image block'><img src='https://tex.s2cms.ru/svg/"+encodeURIComponent(img[i].innerHTML.trim())+"'></span>";
+}
+
 document.getElementById("collapse").onclick = function() {
   var mySolution = document.getElementsByClassName("solution");
   var myPreset = document.getElementsByClassName("preset");
