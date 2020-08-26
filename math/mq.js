@@ -28,7 +28,7 @@ for(var i = 0; i < img.length; i++) {
 
 var img=document.querySelectorAll("code[class*='language-xtikz']")
 for(var i = 0; i < img.length; i++) {
-  img[i].outerHTML = "<span class='image block'><img src='https://tex.s2cms.ru/svg/"+encodeURIComponent(img[i].innerHTML.trim())+"'></span>";
+  img[i].parentElement.outerHTML = "<span class='image block'><img src='https://tex.s2cms.ru/svg/"+encodeURIComponent(img[i].innerHTML.trim())+"'></span>";
 }
 
 document.getElementById("collapse").onclick = function() {
