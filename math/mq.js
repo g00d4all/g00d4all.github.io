@@ -26,6 +26,12 @@ for(var i = 0; i < imgToCenter.length; i++) {
   imgToCenter[i].outerHTML = "<span class='image block'><img src='"+imgToCenter[i].src+"'></span>";
 }
 
+var upmath=document.getElementsByClassName("upmath");
+for(var i = 0; i < upmath.length; i++) {
+  upmath[i].src = "https://tex.s2cms.ru/svg/"+encodeURIComponent(upmath[i].alt.trim());
+  upmath[i].outerHTML = "<span class='image block'>"+upmath[i].outerHTML+"</span>";
+}
+
 var upmath=document.querySelectorAll("code[class*='language-upmath']")
 for(var i = 0; i < upmath.length; i++) {
   upmath[i].parentElement.outerHTML = "<span class='image block'><img src='https://tex.s2cms.ru/svg/"+encodeURIComponent(upmath[i].innerText.trim())+"'></span>";
