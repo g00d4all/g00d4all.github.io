@@ -21,14 +21,14 @@ for(var i = 0; i < img.length; i++) {
   img[i].outerHTML = "<span class='image block'>"+img[i].outerHTML+"</span>";
 }
 
-var img=document.querySelectorAll('[alt="center"]')
-for(var i = 0; i < img.length; i++) {
-  img[i].outerHTML = "<span class='image block'>"+img[i].outerHTML+"</span>";
+var imgToCenter=document.querySelectorAll("img[alt='center']")
+for(var i = 0; i < imgToCenter.length; i++) {
+  imgToCenter[i].outerHTML = "<span class='image block'><img src='"+imgToCenter[i].src+"'></span>";
 }
 
-var img=document.querySelectorAll("code[class*='language-xtikz']")
-for(var i = 0; i < img.length; i++) {
-  img[i].parentElement.outerHTML = "<span class='image block'><img src='https://tex.s2cms.ru/svg/"+encodeURIComponent(img[i].innerText.trim())+"'></span>";
+var upmath=document.querySelectorAll("code[class*='language-upmath']")
+for(var i = 0; i < upmath.length; i++) {
+  upmath[i].parentElement.outerHTML = "<span class='image block'><img src='https://tex.s2cms.ru/svg/"+encodeURIComponent(upmath[i].innerText.trim())+"'></span>";
 }
 
 document.getElementById("collapse").onclick = function() {
