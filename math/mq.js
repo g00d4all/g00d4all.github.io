@@ -34,7 +34,7 @@ for(var i = 0; i < upmath.length; i++) {
 
 var upmath=document.querySelectorAll("code[class*='language-upmath']")
 for(var i = 0; i < upmath.length; i++) {
-  upmath[i].parentElement.outerHTML = "<span class='image block'><img src='https://tex.s2cms.ru/svg/"+encodeURIComponent(upmath[i].innerText.trim())+"'></span>";
+  upmath[i].parentElement.outerHTML = "<span class='image block'><img src='https://tex.s2cms.ru/svg/"+encodeURIComponent(upmath[i].innerText.trim())+"' alt='"+upmath[i].innerText.trim()+"'></span>";
 }
 
 document.getElementById("collapse").onclick = function() {
