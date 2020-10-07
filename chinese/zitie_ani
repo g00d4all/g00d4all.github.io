@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body, input { 
+font-size: x-large;
+font-family: 'Times New Roman', SimSun, '宋体' !important;}
+div {text-align: center;}
+</style>
+</head>
+<body>
+<div>
+<label for="cchar">请输入最多14个汉字：</label>
+<input type="text" id="cchar" name="cchar" value="华夏文明"> 
+<label for="title">请输入字帖标题（可选）：</label>
+<input type="text" id="title" name="title" value="">
+<input type="button" value="生成字帖" onclick="generateSheet();">
+</div>
+
+<script>
+function generateSheet() {
+  var cchar = document.getElementById("cchar").value.split("");
+  var title = document.getElementById("title").value;
+  var mw=window.open();
+  htmlStr=`
+  <html>
+  <head>
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.2/dist/hanzi-writer.min.js"><\/script>
+  <style>
+  h5 {text-align: center;}
+  .line {text-align: center; display:table; margin:.25em auto; font-size:1.25em;}
+  .blank {border-bottom: 1px solid black; display: inline-block;}
+  .pinyin {width: 7em;}
+  .bushou {width: 4em;}
+  .yingyu {width: 10em;}
+  .zuci1 {width: 4.5em;}
+  .zuci2 {width: 7em;}
+  .zaoju {width: 29em;}
+  body { font: normal 1em 'Times New Roman', STKaiti, '楷体' !important;}
+  </style>
+  </head>
+  <body>
+  <h5>${title}</h5>
+  `;
+
+  for (i=0;i<cchar.length;i++) {
+  htmlStr += `
+  <span class="line">
+  <svg width="57.6" height="57.6" onload="
+  var writer=HanziWriter.create(this, '${cchar[i]}', {
+    width: 57.6, 
+    height: 57.6, 
+    padding: 2,
+    radicalColor: '#168F16',
+    delayBetweenLoops: 2000
+  });
+  writer.loopCharacterAnimation();">
+    <line x1="28.8" y1="0" x2="28.8" y2="57.6" stroke-dasharray="3,5" stroke="#D3D3D3" />
+    <line x1="0" y1="28.8" x2="57.6" y2="28.8" stroke-dasharray="3,5" stroke="#D3D3D3" />
+    <line x1="0" y1="0" x2="57.6" y2="0" stroke="#000" />
+    <line x1="57.6" y1="0" x2="57.6" y2="57.6" stroke="#000" />
+    <line x1="57.6" y1="57.6" x2="0" y2="57.6" stroke="#000" />
+    <line x1="0" y1="57.6" x2="0" y2="0" stroke="#000" />
+  </svg>`;
+  
+  for (j=0;j<10;j++) {
+    htmlStr = htmlStr + `<svg width="57.6" height="57.6" onload="
+  var writer=HanziWriter.create(this, '${cchar[i]}', {
+    width: 57.6, 
+    height: 57.6, 
+    padding: 2,
+    radicalColor: '#168F16',
+    showCharacter: false,
+    showOutline: false,
+    showHintAfterMisses: 1,
+    highlightOnComplete: false
+  });
+  writer.quiz();">
+      <line x1="28.8" y1="0" x2="28.8" y2="57.6" stroke-dasharray="3,5" stroke="#D3D3D3" />
+      <line x1="0" y1="28.8" x2="57.6" y2="28.8" stroke-dasharray="3,5" stroke="#D3D3D3" />
+      <line x1="0" y1="0" x2="57.6" y2="0" stroke="#000" />
+      <line x1="57.6" y1="0" x2="57.6" y2="57.6" stroke="#000" />
+      <line x1="57.6" y1="57.6" x2="0" y2="57.6" stroke="#000" />
+      <line x1="0" y1="57.6" x2="0" y2="0" stroke="#000" />
+    </svg>`;
+  }
+
+  htmlStr +=`</span>`;
+  }
+
+  htmlStr += `
+  </body>
+  </html>
+  `;
+  mw.document.write(htmlStr);
+  mw.document.close();
+  mw.focus();
+}
+</script>
+
+</body>
+</html>
